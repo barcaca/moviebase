@@ -1,3 +1,4 @@
+import SidebarLayout from '@/components/layout/sidebar-layout'
 import { redhat } from '@/fonts/font'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
@@ -13,8 +14,22 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${redhat.variable} antialiased`}>{children}</body>
+    <html lang="pt-BR" className={redhat.variable}>
+      <body
+        className={
+          'flex min-h-screen w-full bg-background text-foreground antialiased'
+        }
+      >
+        <div className="relative isolate flex min-h-svh w-full max-lg:flex-col">
+          <SidebarLayout />
+
+          <main className="flex flex-1 flex-col pb-2 lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-64">
+            <div className="grow p-6 lg:rounded-lg lg:bg-background lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-border dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+              <div className="mx-auto max-w-7xl">{children}</div>
+            </div>
+          </main>
+        </div>
+      </body>
     </html>
   )
 }
