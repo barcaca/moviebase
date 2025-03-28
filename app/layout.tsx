@@ -1,3 +1,4 @@
+import Footer from '@/components/layout/footer'
 import SidebarLayout from '@/components/layout/sidebar-layout'
 import { redhat } from '@/fonts/font'
 import '@/styles/globals.css'
@@ -27,6 +28,7 @@ export default function RootLayout({
           <main className="flex flex-1 flex-col pb-2 lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-64">
             <div className="grow p-6 lg:rounded-lg lg:bg-transparent lg:p-8 lg:shadow-sm lg:ring-1 lg:ring-border dark:lg:bg-zinc-900 dark:lg:ring-white/10">
               {children}
+              <Footer />
             </div>
           </main>
         </div>
