@@ -16,8 +16,6 @@ export default function Home() {
       <ShowcaseCarousel title="Novidades" aspectRatio="square" />
       <ShowcaseCarousel title="Popular" aspectRatio="poster" />
       <ShowcaseCarousel title="Recomendados" aspectRatio="square" />
-
-      <footer>{/* Footer */}</footer>
     </div>
   )
 }
