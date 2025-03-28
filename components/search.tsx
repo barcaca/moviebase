@@ -2,15 +2,17 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { ArrowRightIcon, MagnifyingGlassIcon } from '@heroicons/react/16/solid'
+import { useId } from 'react'
 
 const Search = () => {
+  const id = useId()
   return (
     <div className="relative">
-      <Label htmlFor="search" className="sr-only">
+      <Label htmlFor={id} className="sr-only">
         Buscar no site
       </Label>
       <Input
-        id="search"
+        id={id}
         name="search"
         className="peer ps-9 pe-9"
         placeholder="Buscar..."
