@@ -17,15 +17,16 @@ export default function RootLayout({
     <html lang="pt-BR" className={redhat.variable}>
       <body
         className={
-          'flex min-h-screen w-full bg-background text-foreground antialiased'
+          'relative flex min-h-screen w-full text-foreground antialiased'
         }
       >
-        <div className="relative isolate flex min-h-svh w-full max-lg:flex-col">
+        <div className="absolute inset-0 h-[18rem] bg-[url(https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?auto=format&fit=crop&q=80)] bg-center bg-cover bg-no-repeat lg:h-[32rem]" />
+        <div className="absolute inset-0 bg-background/95 " />
+        <div className="relative isolate flex min-h-svh w-full max-lg:flex-col ">
           <SidebarLayout />
-
           <main className="flex flex-1 flex-col pb-2 lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-64">
-            <div className="grow p-6 lg:rounded-lg lg:bg-background lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-border dark:lg:bg-zinc-900 dark:lg:ring-white/10">
-              <div className="mx-auto max-w-7xl">{children}</div>
+            <div className="grow p-6 lg:rounded-lg lg:bg-transparent lg:p-8 lg:shadow-sm lg:ring-1 lg:ring-border dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+              {children}
             </div>
           </main>
         </div>

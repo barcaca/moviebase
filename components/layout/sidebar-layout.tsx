@@ -19,11 +19,11 @@ const SidebarLayout = () => {
   return (
     <Sheet open={showSidebar} onOpenChange={setShowSidebar}>
       {/* Sidebar Desktop */}
-      <div className="fixed inset-y-0 left-0 w-64 max-lg:hidden">
+      <div className="fixed inset-y-0 left-0 w-64 backdrop-blur-sm max-lg:hidden">
         <Sidebar />
       </div>
       {/* Header Mobile */}
-      <header className="flex items-center gap-2 px-4 lg:hidden">
+      <header className="sticky top-0 z-20 flex items-center gap-2 border-b bg-background px-4 shadow lg:hidden">
         <div className="py-2.5">
           <SheetTrigger asChild>
             <Button
