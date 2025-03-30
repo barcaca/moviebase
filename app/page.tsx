@@ -1,7 +1,9 @@
 import HeroSection from '@/components/hero-section'
 import ShowcaseCarousel from '@/components/showcase-carousel'
+import { getTrending } from '@/data/data'
 
-export default function Home() {
+export default async function Home() {
+  const trendings = await getTrending()
   return (
     <div className="mx-auto ">
       <HeroSection
@@ -12,7 +14,11 @@ export default function Home() {
           ama cinema e séries."
       />
 
-      <ShowcaseCarousel title="Destaques" aspectRatio="poster" />
+      <ShowcaseCarousel
+        items={trendings}
+        title="Destaques"
+        aspectRatio="poster"
+      />
       <ShowcaseCarousel title="Novidades" aspectRatio="square" />
       <ShowcaseCarousel title="Popular" aspectRatio="poster" />
       <ShowcaseCarousel title="Recomendados" aspectRatio="square" />
