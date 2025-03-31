@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { formatDate } from '@/lib/utils'
 import type { Movie } from '@/types/movie'
 import type { MediaItem } from '@/types/tmdb'
 import type { TvSeries } from '@/types/tvseries'
@@ -87,9 +88,6 @@ const MediaCard = ({ item, aspectRatio }: MediaCardProps) => {
     item.media_type === 'movie'
       ? (item as Movie).release_date
       : (item as TvSeries).first_air_date
-
-  const formatDate = (dateString: string) =>
-    new Date(dateString).toLocaleDateString()
 
   return (
     <CarouselItem className="basis-3xs pl-(--carousel-padding)">
