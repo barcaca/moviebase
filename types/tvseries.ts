@@ -4,7 +4,7 @@ import type { CommonMedia } from './tmdb'
 export interface TvSeries extends CommonMedia {
   name: string
   original_name: string
-  media_type: 'tv'
+  media_type: 'tv' | 'movie'
   first_air_date: string
   origin_country: string[]
 }

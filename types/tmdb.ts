@@ -22,3 +22,14 @@ export interface CommonMedia {
   vote_average: number
   vote_count: number
 }
+
+export interface DiscoverParams {
+  includeAdult: boolean
+  includeVideo: boolean
+  includeFirstAir?: boolean
+  language: string
+  page: number
+  releaseDateGte: string
+  releaseDateLte: string
+  sortBy: string
+}
