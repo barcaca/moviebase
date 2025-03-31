@@ -5,7 +5,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import type { Movie } from '@/types/movie'
 import type { MediaItem } from '@/types/tmdb'
+import type { TvSeries } from '@/types/tvseries'
 import { FilmIcon, TvIcon } from '@heroicons/react/16/solid'
 import Image from 'next/image'
 
@@ -54,17 +56,22 @@ interface MediaPosterProps {
   aspectRatio: AspectRatio
 }
 
-const MediaPoster = ({ title, path, aspectRatio }: MediaPosterProps) => (
-  <Image
-    src={`https://image.tmdb.org/t/p/original${path}`}
-    alt={`${title} poster`}
-    width={256}
-    height={336}
-    className={`h-full max-h-[21rem] rounded-md bg-foreground/50 ${
-      aspectRatio === 'poster' ? 'aspect-[2/3]' : 'aspect-square'
-    }`}
-  />
-)
+const MediaPoster = ({ title, path, aspectRatio }: MediaPosterProps) => {
+  const size = aspectRatio === 'poster' ? 'original' : 'w500'
+  return (
+    <Image
+      src={`https://image.tmdb.org/t/p/${size}${path}`}
+      alt={`${title} poster`}
+      width={aspectRatio === 'poster' ? 256 : 200}
+      height={aspectRatio === 'poster' ? 336 : 200}
+      className={` rounded-md bg-foreground/50 ${
+        aspectRatio === 'poster'
+          ? 'aspect-[2/3] h-full max-h-[21rem]'
+          : 'aspect-square'
+      }`}
+    />
+  )
+}
 
 interface MediaCardProps {
   item: MediaItem
@@ -72,16 +79,21 @@ interface MediaCardProps {
 }
 
 const MediaCard = ({ item, aspectRatio }: MediaCardProps) => {
-  const title = item.media_type === 'movie' ? item.title : item.name
+  const title =
+    item.media_type === 'movie'
+      ? (item as Movie).title
+      : (item as TvSeries).name
   const date =
-    item.media_type === 'movie' ? item.release_date : item.first_air_date
+    item.media_type === 'movie'
+      ? (item as Movie).release_date
+      : (item as TvSeries).first_air_date
 
   const formatDate = (dateString: string) =>
     new Date(dateString).toLocaleDateString()
 
   return (
     <CarouselItem className="basis-3xs pl-(--carousel-padding)">
-      <div className="relative h-full max-h-[21rem]">
+      <div className="relative ">
         <MediaPoster
           title={title}
           path={item.poster_path}
