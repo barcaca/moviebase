@@ -5,4 +5,8 @@ export const ENDPOINTS = {
     MOVIE: '/trending/movie',
     TV: '/trending/tv',
   },
+  DISCOVER: {
+    MOVIE: '/discover/movie',
+    TV: '/discover/tv',
+  },
 } as const
