@@ -9,6 +9,16 @@ export const ENDPOINTS = {
     MOVIE: '/discover/movie',
     TV: '/discover/tv',
   },
-  MOVIE: '/movie',
-  TV: '/tv',
+  MOVIE: {
+    NOW_PLAYING: '/movie/now_playing',
+    POPULAR: '/movie/popular',
+    TOP_RATED: '/movie/top_rated',
+    UPCOMING: '/movie/upcoming',
+  },
+  TV: {
+    AIRING_TODAY: '/tv/airing_today',
+    ON_THE_AIR: '/tv/on_the_air',
+    POPULAR: '/tv/popular',
+    TOP_RATED: '/tv/top_rated',
+  },
 } as const
