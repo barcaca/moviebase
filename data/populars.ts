@@ -20,6 +20,7 @@ async function fetchPopularMonth(): Promise<MediaItem[]> {
     language: 'pt-BR',
     page: '1',
     sort_by: 'popularity.desc',
+    region: 'BR',
   }
 
   // 1. Filmes
