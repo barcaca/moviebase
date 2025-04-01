@@ -1,13 +1,15 @@
 import HeroSection from '@/components/hero-section'
 import ShowcaseCarousel from '@/components/showcase-carousel'
+import { getTheatres } from '@/data/movies'
 import { getPopularMonth } from '@/data/populars'
-import { getTheatres } from '@/data/theatres'
 import { getTrending } from '@/data/trending'
 
 export default async function Home() {
-  const trendings = await getTrending()
-  const popular = await getPopularMonth()
-  const theatres = await getTheatres()
+  const [trendings, popular, theatres] = await Promise.all([
+    getTrending(),
+    getPopularMonth(),
+    getTheatres(),
+  ])
 
   return (
     <div className="mx-auto ">
@@ -36,7 +38,6 @@ export default async function Home() {
         title="Popular do mês"
         aspectRatio="poster"
       />
-      <ShowcaseCarousel title="Recomendados" aspectRatio="square" />
     </div>
   )
 }
