@@ -111,7 +111,7 @@ const MediaCard = ({ item, aspectRatio }: MediaCardProps) => {
           )}
         </span>
       </div>
-      <h3 className="mt-2 line-clamp-1 font-bold">{title}</h3>
+      <h3 className="mt-2 font-bold">{title}</h3>
       <p className="text-muted-foreground">{formatDate(date)}</p>
     </CarouselItem>
   )
